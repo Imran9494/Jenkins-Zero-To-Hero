@@ -122,25 +122,23 @@ usermod -aG docker jenkins
 usermod -aG docker ubuntu
 systemctl restart docker
 
- 
-      2  docker run hello-world
-      3  docker images
-      4  docker pull abhishekf5/maven-abhishek-docker-agent:v1
-      5  docker images
-      6  docker login
-      7  docker push imran4786/maven-abhishek-docker-agent:v1
-      8  docker tag abhishekf5/maven-abhishek-docker-agent:v1 imran4786/maven-abhishek-docker-agent:v1
-      9  docker push imran4786/maven-abhishek-docker-agent:v1
-     10  sudo usermod -aG docker jenkins
-     11  sudo systemctl restart docker
-     12  sudo systemctl restart jenkins
-     13  sudo systemctl restart docker
-     14  sudo systemctl status docker
-     15  top
-     16  history
+
 
 ```
-
+ 
+```
+      1  docker run hello-world
+      2  docker images
+      3  docker pull abhishekf5/maven-abhishek-docker-agent:v1
+      4  docker images
+      5  docker login
+      6  docker tag abhishekf5/maven-abhishek-docker-agent:v1 imran4786/maven-abhishek-docker-agent:v1
+      7  docker push imran4786/maven-abhishek-docker-agent:v1
+      8  sudo usermod -aG docker jenkins
+      9  sudo systemctl restart docker
+     10  sudo systemctl restart jenkins
+     11  sudo systemctl restart docker
+     12  sudo systemctl status docker
 Once you are done with the above steps, it is better to restart Jenkins.
 
 ```
