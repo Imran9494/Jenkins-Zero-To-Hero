@@ -121,9 +121,6 @@ sudo su -
 usermod -aG docker jenkins
 usermod -aG docker ubuntu
 systemctl restart docker
-
-
-
 ```
  
 ```
