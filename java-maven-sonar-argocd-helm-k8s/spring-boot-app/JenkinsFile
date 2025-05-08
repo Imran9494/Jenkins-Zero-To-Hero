@@ -5,11 +5,14 @@ pipeline {
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
+  parameters {
+    booleanParam(name: 'SKIP_SONARQUBE_TEST', defaultValue: false, description: 'Skip the SonarQube testing stage')
+  }
   stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-ZeroToHero.git'
       }
     }
     stage('Build and Test') {
@@ -20,6 +23,11 @@ pipeline {
       }
     }
     stage('Static Code Analysis') {
+      when {
+        not {
+          expression { return params.SKIP_SONARQUBE_TEST }
+        }
+      }
       environment {
         SONAR_URL = "http://34.201.116.83:9000"
       }
